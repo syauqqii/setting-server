@@ -11,7 +11,7 @@ curl -sSL https://raw.githubusercontent.com/syauqqii/setting-server/main/init.sh
 ## ✅ What It Installs
 
 - System update & upgrade
-- `neofetch`, `nginx`, `git`, `curl`, `zsh`, `pm2`
+- `neofetch`, `nginx`, `git`, `curl`, `zsh`, `pm2`, `mysql`
 - Node.js (LTS)
 - Certbot (Let's Encrypt SSL)
 - Optional tools: `htop`, `ufw`, `fail2ban`, `unzip`

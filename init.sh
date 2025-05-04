@@ -24,12 +24,29 @@ apt install -y certbot python3-certbot-nginx
 echo "🟣 Installing optional utilities..."
 apt install -y htop unzip fail2ban ufw zsh
 
-echo "🔵 Installing Oh My Zsh for root..."
+echo "🟢 Installing MySQL..."
+apt install -y mysql-server
+
+echo "🟡 Setting root password for MySQL..."
+sudo mysql -e "UPDATE mysql.user SET authentication_string=PASSWORD('root@me.please') WHERE User='root';"
+sudo mysql -e "FLUSH PRIVILEGES;"
+
+echo "🟡 Securing MySQL installation..."
+sudo mysql_secure_installation
+
+echo "🟣 Installing Oh My Zsh for root..."
 export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "🔁 Setting Zsh as the default shell..."
 chsh -s $(which zsh)
+
+echo "🟢 Installing 'xiong-chiamiov-plus' Zsh theme..."
+cp ~/.zshrc ~/.zshrc.backup
+sed -i 's/^ZSH_THEME=.*$/ZSH_THEME="xiong-chiamiov-plus"/' ~/.zshrc
+
+echo "🔁 Reloading Zsh configuration..."
+source ~/.zshrc
 
 echo ""
 echo "✅ Installation complete!"
@@ -42,3 +59,4 @@ npm -v
 pm2 -v
 git --version
 zsh --version
+mysql --version
