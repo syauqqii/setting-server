@@ -21,6 +21,7 @@ curl -sSL https://raw.githubusercontent.com/syauqqii/setting-server/main/init.sh
 
 - Default shell will be changed to Zsh (root only)
 - SSL setup with Certbot requires domain + open ports (80/443)
+- Default MYSQL Username `root` and Password `root@me.please`
 
 ## 📁 File Structure
 
